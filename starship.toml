@@ -1,0 +1,41 @@
+# Add a newline between prompts
+add_newline = true
+
+[directory]
+truncation_length = 3
+style = "bold blue"
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+
+[python]
+symbol = "🐍 "
+pyenv_prefix = "venv "
+style = "bold yellow"
+
+[gcloud]
+symbol = "☁️  "
+format = 'on [$symbol$active]($style) '
+style = "bold cyan"
+
+[kubernetes]
+symbol = "☸ "
+disabled = false
+
+[git_status]
+# Remove the brackets around the status
+format = '$all_status$ahead_behind '
+
+# Use standard, clean symbols
+modified = "*"
+untracked = "?"
+staged = "+"
+deleted = "x"
+renamed = "»"
+
+# Make them bold red/yellow so they stand out but don't look cartoony
+style = "bold yellow"
+
+[conda]
+ignore_base = false
