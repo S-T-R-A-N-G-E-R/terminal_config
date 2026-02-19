@@ -1,10 +1,10 @@
 <div align="center">
 
-<!-- HEADER -->
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0a0f1e,50:0d2137,100:00d4ff&height=200&section=header&text=MLOps%20Terminal%20Environment&fontSize=42&fontColor=ffffff&fontAlignY=38&desc=The%20Ultimate%20Dotfiles%20for%20Data%20Science%20%26%20MLOps&descSize=16&descAlignY=58&descColor=7ec8e3"/>
 
 <br/>
 
+[![Warp](https://img.shields.io/badge/Terminal-Warp-1a1a2e?style=for-the-badge&logo=terminal&logoColor=00d4ff&labelColor=0a0f1e)](https://www.warp.dev/)
 [![Zsh](https://img.shields.io/badge/Shell-Zsh-1a1a2e?style=for-the-badge&logo=gnubash&logoColor=00d4ff&labelColor=0a0f1e)](https://www.zsh.org/)
 [![Starship](https://img.shields.io/badge/Prompt-Starship-1a1a2e?style=for-the-badge&logo=starship&logoColor=dd0b78&labelColor=0a0f1e)](https://starship.rs/)
 [![macOS](https://img.shields.io/badge/Platform-macOS-1a1a2e?style=for-the-badge&logo=apple&logoColor=ffffff&labelColor=0a0f1e)](https://www.apple.com/macos/)
@@ -97,12 +97,13 @@ Before choosing a method, ensure **Homebrew** is installed, then clone this repo
 
 ```zsh
 # Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh](https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh))"
 
 # Clone and install all tools
-git clone https://github.com/YOUR-USERNAME/terminal_config.git ~/dotfiles
+git clone [https://github.com/YOUR-USERNAME/terminal_config.git](https://github.com/YOUR-USERNAME/terminal_config.git) ~/dotfiles
 cd ~/dotfiles
 brew bundle
+
 ```
 
 ---
@@ -117,6 +118,7 @@ _For a fresh Mac with no existing configuration._
 rm -f ~/.zshrc
 rm -f ~/.config/starship.toml
 mkdir -p ~/.config
+
 ```
 
 **Step 2 — Create Symlinks**
@@ -124,12 +126,14 @@ mkdir -p ~/.config
 ```zsh
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/starship.toml ~/.config/starship.toml
+
 ```
 
 **Step 3 — Apply & Enjoy**
 
 ```zsh
 source ~/.zshrc
+
 ```
 
 ---
@@ -144,19 +148,45 @@ _For experienced developers with existing configs — non-destructive._
 mkdir -p ~/.config
 mv ~/.config/starship.toml ~/.config/starship_backup.toml 2>/dev/null || true
 ln -s ~/dotfiles/starship.toml ~/.config/starship.toml
+
 ```
 
-**Step 2 — Source into Existing `.zshrc`**
+**Step 2 — Source into Existing `.zshrc**`
 
 ```zsh
 echo "source ~/dotfiles/.zshrc" >> ~/.zshrc
+
 ```
 
 **Step 3 — Apply & Enjoy**
 
 ```zsh
 source ~/.zshrc
+
 ```
+
+---
+
+## `$ cat warp_setup.md`
+
+<table>
+<tr>
+<td>
+
+**🚀 Warp Terminal Integration**
+
+This entire workspace is optimized to run inside [Warp](https://www.warp.dev/), a modern Rust-based terminal. By default, Warp overrides custom shell prompts with its own UI. To pass full control back to Starship, you must adjust Warp's input settings:
+
+1. Open Warp Settings (`Cmd + ,`)
+2. Navigate to **Appearance > Input**
+3. Change the dropdown to **Shell prompt (PS1)**
+4. Check the box for **Same line**
+
+_Note: If the default folder icon still appears, right-click the input prompt area, select "Edit prompt", and choose "Shell (PS1)"._
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -179,6 +209,7 @@ The `starship.toml` is tuned to remove unnecessary brackets, leaving only clean 
 
 ```zsh
 conda config --set auto_activate_base false
+
 ```
 
 </td>
@@ -197,6 +228,7 @@ brew bundle dump -f   # regenerate Brewfile
 git add Brewfile
 git commit -m "chore: update Brewfile"
 git push
+
 ```
 
 ---
