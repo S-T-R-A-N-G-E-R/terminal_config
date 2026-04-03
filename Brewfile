@@ -21,3 +21,8 @@ brew "httpie"     # The modern 'curl' for testing APIs
 brew "gh"         # GitHub CLI for auth and repo management
 brew "visidata"   # Terminal spreadsheet for massive CSV/JSON files
 brew "harlequin"  # Terminal SQL IDE for databases
+
+# ==========================================
+# 🎨 FONTS (Required for Nerd Tree Icons)
+# ==========================================
+cask "font-jetbrains-mono-nerd-font"
