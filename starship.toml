@@ -39,3 +39,27 @@ style = "bold yellow"
 
 [conda]
 ignore_base = false
+
+# --- RIGHT PROMPT: GIT METADATA ---
+# Pushes the commit hash, author, and time to the right edge of the terminal
+right_format = '$git_commit${custom.git_author}${custom.git_time}'
+
+# 1. Force the Commit Hash to always show
+[git_commit]
+only_detached = false
+format = '[  $hash ]($style)'
+style = "bold yellow"
+
+# 2. Custom module to show the Author Name of the last commit
+[custom.git_author]
+command = "git log -1 --format=%an 2> /dev/null"
+when = "git rev-parse --is-inside-work-tree 2> /dev/null"
+format = '[ 👤 $output ]($style)'
+style = "bold cyan"
+
+# 3. Custom module to calculate time since last commit
+[custom.git_time]
+command = "git log -1 --format=%cr 2> /dev/null"
+when = "git rev-parse --is-inside-work-tree 2> /dev/null"
+format = '[ ⏱ $output ]($style)'
+style = "bold blue"
