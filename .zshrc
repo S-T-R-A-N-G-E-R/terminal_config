@@ -24,9 +24,6 @@ unset __conda_setup
 
 # --- Modern Tools Configuration ---
 
-# 1. Initialize zoxide (The smarter cd)
-eval "$(zoxide init zsh)"
-alias cd="z"
 
 # 2. Alias cat to bat
 alias cat="bat"
@@ -82,4 +79,18 @@ conda() {
 }
 
 # Added by Antigravity
-export PATH="/Users/swapnilroy/.antigravity/antigravity/bin:$PATH"
+[ -d "$HOME/.antigravity/antigravity/bin" ] && export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+export GLAMOUR_STYLE=auto
+export PATH="$HOME/.local/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+# Homebrew is owned by another user (testaccount); let nvm run compinit -u instead of prompting
+export ZSH_DISABLE_COMPFIX=true
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+# Machine-specific settings (JAVA_HOME etc.)
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# zoxide must be initialized last; --cmd cd replaces cd properly (no alias)
+eval "$(zoxide init zsh --cmd cd)"
